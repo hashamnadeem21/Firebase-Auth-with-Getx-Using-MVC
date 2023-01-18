@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "718610086190",
+    "project_id": "signuplogin-efe18",
+    "storage_bucket": "signuplogin-efe18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:718610086190:android:0cb3109ada82e25170e2bf",
+        "android_client_info": {
+          "package_name": "com.example.signuploginfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "718610086190-s6phgrsmhtqisr1ubof65ucr68bgabu6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgl0XLykms7zrFsrY-bmxihDG7iSn42ac"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "718610086190-s6phgrsmhtqisr1ubof65ucr68bgabu6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
