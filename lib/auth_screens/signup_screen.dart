@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:signuploginfirebase/auth_screens/login_screen.dart';
+import 'package:signuploginfirebase/extention_function/extension_function.dart';
 import 'package:signuploginfirebase/widgets/buttons.dart';
 import '../controllers/auth_controller.dart';
 
@@ -15,69 +16,72 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      // resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text("Signup"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            TextFormField(
-              controller: name,
-              autofocus: true,
-              decoration: const InputDecoration(
-                icon: Icon(Icons.person),
-                label: Text("Name"),
-              ),
-            ),
-            TextFormField(
-              controller: username,
-              autofocus: true,
-              decoration: const InputDecoration(
-                icon: Icon(Icons.supervised_user_circle),
-                label: Text("Username"),
-              ),
-            ),
-            TextFormField(
-              controller: email,
-              autofocus: true,
-              decoration: const InputDecoration(
-                  icon: Icon(Icons.email_outlined),
-                  label: Text("Email"),
-                  fillColor: Colors.cyan),
-            ),
-            TextFormField(
-              controller: password,
-              autofocus: true,
-              decoration: const InputDecoration(
-                icon: Icon(Icons.password),
-                label: Text("Password"),
-              ),
-            ),
-            Custom_Button(
-                label: "Signup",
-                backgroundcolor: Colors.grey,
-                textcolor: Colors.white,
-                function: () {
-                  AuthController.instance.Register(
-                      email.text.toString(),
-                      password.text.toString(),
-                      name.text.toString(),
-                      username.text.toString());
-                }),
-            Custom_Button(
-                label: "Login",
-                backgroundcolor: Colors.grey,
-                textcolor: Colors.white,
-                function: () {
-                  Get.to(LoginPage());
-                }),
-          ],
-        ),
-      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+
+          CustomTextField(controller: name, label: "Name", hintText: "Enter your Name", icon: Icons.person),
+          CustomTextField(controller: username, label: "Username", hintText: "Enter your Username", icon: Icons.supervised_user_circle),
+          CustomTextField(controller: email, label: "Email", hintText: "Enter your Email", icon: Icons.email_outlined),
+          CustomTextField(controller: password, label: "Password", hintText: "Enter your Password", icon: Icons.password),
+
+          Custom_Button(
+              label: "Signup",
+              backgroundcolor: Colors.grey,
+              textcolor: Colors.white,
+              function: () {
+                AuthController.instance.Register(
+                    email.text.toString(),
+                    password.text.toString(),
+                    name.text.toString(),
+                    username.text.toString());
+              }),
+          Custom_Button(
+              label: "Login",
+              backgroundcolor: Colors.grey,
+              textcolor: Colors.white,
+              function: () {
+                Get.to(LoginPage());
+              }),
+
+        ],
+      ).extendPadding(),
     );
   }
 }
+
+
+class CustomTextField extends StatelessWidget {
+  CustomTextField({Key? key, required this.controller, required this.label, required this.hintText, required this.icon}) : super(key: key);
+
+  String label;
+  String hintText;
+  IconData icon;
+  TextEditingController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(height: 20,),
+        TextFormField(
+          controller: controller,
+          decoration: InputDecoration(
+            labelText: label,
+            hintText: hintText,
+            border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
+            prefixIcon: Icon(icon),
+          ),
+        ),
+      ],
+    );
+
+  }
+}
+
+

@@ -23,50 +23,52 @@ class LoginPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Login"),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
+        child: Padding(
 // Padding for the entire column
-        padding: const EdgeInsets.all(20),
-        child: Column(
+          padding: const EdgeInsets.all(20),
+          child: Column(
 // Align the children of the column to the center
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
 // Email TextFormField with email icon and label
-            TextFormField(
-              controller: email,
-              autofocus: true,
-              decoration: const InputDecoration(
-                  icon: Icon(Icons.email_outlined),
-                  label: Text("Email"),
-                  fillColor: Colors.cyan),
-            ),
-// Password TextFormField with password icon and label
-            TextFormField(
-              controller: password,
-              autofocus: true,
-              decoration: const InputDecoration(
-                icon: Icon(Icons.password),
-                label: Text("Password"),
+              TextFormField(
+                controller: email,
+                autofocus: true,
+                decoration: const InputDecoration(
+                    prefixIcon: Icon(Icons.email_outlined),
+                    label: Text("Email"),
+                    fillColor: Colors.cyan),
               ),
-            ),
+// Password TextFormField with password icon and label
+              TextFormField(
+                controller: password,
+                autofocus: true,
+                decoration: const InputDecoration(
+                  icon: Icon(Icons.password),
+                  label: Text("Password"),
+                ),
+              ),
 // Login button that calls the login method in the AuthController with the email and password text
-            Custom_Button(
-                label: "Login",
-                backgroundcolor: Colors.grey,
-                textcolor: Colors.white,
-                function: () {
-                  AuthController.instance
-                      .Login(email.text.toString(), password.text.toString());
-                }),
+              Custom_Button(
+                  label: "Login",
+                  backgroundcolor: Colors.grey,
+                  textcolor: Colors.white,
+                  function: () {
+                    AuthController.instance
+                        .Login(email.text.toString(), password.text.toString());
+                  }),
 // Signup button that navigates to the SignUp page
-            Custom_Button(
-                label: "Signup",
-                backgroundcolor: Colors.grey,
-                textcolor: Colors.white,
-                function: () {
-                  Get.to(SignUp());
-                })
-          ],
+              Custom_Button(
+                  label: "Signup",
+                  backgroundcolor: Colors.grey,
+                  textcolor: Colors.white,
+                  function: () {
+                    Get.to(SignUp());
+                  })
+            ],
+          ),
         ),
       ),
     );
