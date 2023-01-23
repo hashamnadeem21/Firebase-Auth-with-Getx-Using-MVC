@@ -3,7 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:signuploginfirebase/auth_screens/home_screen.dart';
-import 'package:signuploginfirebase/auth_screens/login_screen.dart';
+
+import '../boarding/boarding_screen.dart';
+
 class AuthController extends GetxController {
   // Singleton instance of the AuthController
   static AuthController instance = Get.find();
@@ -29,7 +31,7 @@ class AuthController extends GetxController {
     if (user == null) {
       // If no user, navigate to login page
       print("Login Page");
-      Get.offAll(LoginPage());
+      Get.offAll(Boarding_Screen());
     } else {
       // If user is logged in, navigate to home screen
       print("Login Success");

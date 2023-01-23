@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:signuploginfirebase/auth_screens/signup_screen.dart';
 import 'package:signuploginfirebase/controllers/auth_controller.dart';
+import 'package:signuploginfirebase/utils/color_constants.dart';
+import 'package:signuploginfirebase/utils/image_constants.dart';
 import 'package:signuploginfirebase/widgets/buttons.dart';
+
+import '../widgets/signup_textbutton.dart';
 
 // LoginPage is a StatelessWidget that displays a login form and buttons to login or navigate to the signup page.
 class LoginPage extends StatelessWidget {
@@ -18,59 +23,45 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(
 // AppBar with title "Login"
-      appBar: AppBar(
-        title: const Text("Login"),
-      ),
-      body: SingleChildScrollView(
         child: Padding(
 // Padding for the entire column
-          padding: const EdgeInsets.all(20),
-          child: Column(
+      padding: const EdgeInsets.all(20),
+      child: Column(
 // Align the children of the column to the center
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-// Email TextFormField with email icon and label
-              TextFormField(
-                controller: email,
-                autofocus: true,
-                decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.email_outlined),
-                    label: Text("Email"),
-                    fillColor: Colors.cyan),
-              ),
-// Password TextFormField with password icon and label
-              TextFormField(
-                controller: password,
-                autofocus: true,
-                decoration: const InputDecoration(
-                  icon: Icon(Icons.password),
-                  label: Text("Password"),
-                ),
-              ),
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CustomTextField(
+              controller: email,
+              label: "Email",
+              hintText: "Enter Your Email",
+              icon: Icons.email_outlined,
+              action: TextInputAction.next),
+          CustomTextField(
+              controller: password,
+              label: "Password",
+              hintText: "Enter Your Password",
+              icon: Icons.password,
+              action: TextInputAction.done),
 // Login button that calls the login method in the AuthController with the email and password text
-              Custom_Button(
-                  label: "Login",
-                  backgroundcolor: Colors.grey,
-                  textcolor: Colors.white,
-                  function: () {
-                    AuthController.instance
-                        .Login(email.text.toString(), password.text.toString());
-                  }),
+          Custom_Button(
+              label: "Login",
+              backgroundcolor: ColorConstants.MainColor,
+              textcolor: Colors.white,
+              function: () {
+                AuthController.instance
+                    .Login(email.text.toString(), password.text.toString());
+              }),
+
+
 // Signup button that navigates to the SignUp page
-              Custom_Button(
-                  label: "Signup",
-                  backgroundcolor: Colors.grey,
-                  textcolor: Colors.white,
-                  function: () {
-                    Get.to(SignUp());
-                  })
-            ],
-          ),
-        ),
+          SignUpText(function: () {
+            Get.to(SignUp());
+          }),
+        ],
       ),
-    );
+    ));
   }
 }
