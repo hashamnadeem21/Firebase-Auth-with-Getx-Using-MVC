@@ -102,8 +102,9 @@ class CustomTextField extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+        SizedBox(
+          width: Get.width*100,
+          height: 70,
           child: Card(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),

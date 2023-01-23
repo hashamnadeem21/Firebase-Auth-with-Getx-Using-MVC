@@ -8,6 +8,7 @@ import 'package:signuploginfirebase/utils/color_constants.dart';
 import 'package:signuploginfirebase/utils/image_constants.dart';
 import 'package:signuploginfirebase/widgets/buttons.dart';
 
+import '../widgets/dividers.dart';
 import '../widgets/signup_textbutton.dart';
 
 // LoginPage is a StatelessWidget that displays a login form and buttons to login or navigate to the signup page.
@@ -27,7 +28,7 @@ class LoginPage extends StatelessWidget {
 // AppBar with title "Login"
         child: Padding(
 // Padding for the entire column
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(40),
       child: Column(
 // Align the children of the column to the center
         mainAxisAlignment: MainAxisAlignment.center,
@@ -55,7 +56,7 @@ class LoginPage extends StatelessWidget {
                     .Login(email.text.toString(), password.text.toString());
               }),
 
-
+          const Dividers(),
 // Signup button that navigates to the SignUp page
           SignUpText(function: () {
             Get.to(SignUp());
