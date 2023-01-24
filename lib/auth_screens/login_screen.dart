@@ -35,12 +35,14 @@ class LoginPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           CustomTextField(
+            Secure: false,
               controller: email,
               label: "Email",
               hintText: "Enter Your Email",
               icon: Icons.email_outlined,
               action: TextInputAction.next),
           CustomTextField(
+            Secure: true,
               controller: password,
               label: "Password",
               hintText: "Enter Your Password",

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:signuploginfirebase/auth_screens/login_screen.dart';
+import 'package:signuploginfirebase/auth_screens/mainlogin_screen.dart';
 import 'package:signuploginfirebase/extention_function/extension_function_padding.dart';
 import 'package:signuploginfirebase/utils/color_constants.dart';
 import 'package:signuploginfirebase/utils/image_constants.dart';
@@ -21,13 +23,19 @@ class SignUp extends StatelessWidget {
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        backgroundColor: Colors.grey,
         title: const Text("Signup"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Padding(
+            padding: const EdgeInsets.only(right: 50, left: 50, bottom: 50),
+            child: Lottie.asset("images/107800-login-leady.json"),
+          ),
           CustomTextField(
+            Secure: false,
             controller: name,
             label: "Name",
             hintText: "Enter your Name",
@@ -35,13 +43,16 @@ class SignUp extends StatelessWidget {
             action: TextInputAction.next,
           ),
           CustomTextField(
+            Secure: false,
             controller: username,
             label: "Username",
             hintText: "Enter your Username",
             icon: Icons.supervised_user_circle,
             action: TextInputAction.next,
+
           ),
           CustomTextField(
+            Secure: false,
             controller: email,
             label: "Email",
             hintText: "Enter your Email",
@@ -49,15 +60,17 @@ class SignUp extends StatelessWidget {
             action: TextInputAction.next,
           ),
           CustomTextField(
+            Secure: true,
             controller: password,
-            label: "",
+            label: "Password",
             hintText: "Enter your Password",
             icon: Icons.password,
             action: TextInputAction.done,
+            secondIcon: Icons.remove_red_eye_outlined,
           ),
           Custom_Button(
               label: "Signup",
-              backgroundcolor: Colors.grey,
+              backgroundcolor: ColorConstants.MainColor,
               textcolor: Colors.white,
               function: () {
                 AuthController.instance.Register(
@@ -66,13 +79,14 @@ class SignUp extends StatelessWidget {
                     name.text.toString(),
                     username.text.toString());
               }),
-          Custom_Button(
-              label: "Login",
-              backgroundcolor: Colors.grey,
-              textcolor: Colors.white,
-              function: () {
-                Get.to(LoginPage());
-              }),
+    Custom_Button(
+    label: "Login",
+    backgroundcolor: ColorConstants.MainColor,
+    textcolor: Colors.white,
+    function: () {
+      Get.to(MainLogin());
+    }),
+
         ],
       ).extendPadding(),
     );
@@ -86,20 +100,22 @@ class CustomTextField extends StatelessWidget {
       required this.label,
       required this.hintText,
       required this.icon,
-      required this.action})
+      required this.action, this.secondIcon, required this.Secure})
       : super(key: key);
 
   String label;
   String hintText;
   IconData icon;
+  IconData? secondIcon;
   TextEditingController controller;
   TextInputAction action;
+  bool Secure;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         const SizedBox(
-          height: 20,
+          height: 10,
         ),
         SizedBox(
           width: Get.width*100,
@@ -111,10 +127,12 @@ class CustomTextField extends StatelessWidget {
             child: TextFormField(
               textInputAction: action,
               controller: controller,
+              obscureText: Secure,
               decoration: InputDecoration(
                 labelText: label,
                 hintText: hintText,
                 prefixIcon: Icon(icon),
+                suffixIcon: Icon(secondIcon),
                 border: InputBorder.none,
               ),
             ),

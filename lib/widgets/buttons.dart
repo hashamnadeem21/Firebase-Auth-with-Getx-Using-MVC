@@ -20,7 +20,7 @@ class Custom_Button extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: 20,
+          height: 10,
         ),
         ElevatedButton(
             style: ElevatedButton.styleFrom(

@@ -41,7 +41,7 @@ dependencies:
   firebase_core: any
   cloud_firestore: any
   flutter_svg: ^1.1.6
-
+  lottie: ^2.2.0
 
 dev_dependencies:
   flutter_test:

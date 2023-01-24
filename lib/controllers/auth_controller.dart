@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:signuploginfirebase/auth_screens/home_screen.dart';
-
 import '../boarding/boarding_screen.dart';
 
 class AuthController extends GetxController {
