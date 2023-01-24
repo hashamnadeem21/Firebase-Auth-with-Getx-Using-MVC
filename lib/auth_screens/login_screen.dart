@@ -28,7 +28,7 @@ class LoginPage extends StatelessWidget {
 // AppBar with title "Login"
         child: Padding(
 // Padding for the entire column
-      padding: const EdgeInsets.all(40),
+      padding: const EdgeInsets.all(48),
       child: Column(
 // Align the children of the column to the center
         mainAxisAlignment: MainAxisAlignment.center,

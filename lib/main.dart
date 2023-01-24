@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:signuploginfirebase/controllers/auth_controller.dart';
 import 'boarding/boarding_screen.dart';
 
-
 // This code is initializing the Firebase
 // app and ensuring that the WidgetsFlutterBinding is initialized.
 // The Firebase.initializeApp()
@@ -29,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:const Boarding_Screen(),
+      home: const Boarding_Screen(),
     );
   }
 }

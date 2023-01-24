@@ -42,21 +42,12 @@ class Boarding_Screen extends StatelessWidget {
             ),
             Boarding_Buttons(
                 textColor: Colors.white,
-                label: "Admin",
+                label: "Firebase Login",
                 function: () {
                   Get.to(MainLogin());
                 },
                 backgroundColor: ColorConstants.MainColor),
-            Boarding_Buttons(
-                textColor: Colors.white,
-                label: "Student",
-                function: () {},
-                backgroundColor: ColorConstants.MainColor),
-            Boarding_Buttons(
-                textColor: Colors.white,
-                label: "Outsiders",
-                function: () {},
-                backgroundColor: ColorConstants.MainColor)
+
           ],
         ),
       ),

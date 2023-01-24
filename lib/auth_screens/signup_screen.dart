@@ -27,7 +27,6 @@ class SignUp extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SvgPicture.asset(ImageConstants.SplashScreenLogo),
           CustomTextField(
             controller: name,
             label: "Name",

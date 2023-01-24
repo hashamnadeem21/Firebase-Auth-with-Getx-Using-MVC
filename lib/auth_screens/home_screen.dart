@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:signuploginfirebase/auth_screens/signup_screen.dart';
 import 'package:signuploginfirebase/controllers/auth_controller.dart';
 import 'package:signuploginfirebase/widgets/buttons.dart';
 import 'package:firebase_auth/firebase_auth.dart';

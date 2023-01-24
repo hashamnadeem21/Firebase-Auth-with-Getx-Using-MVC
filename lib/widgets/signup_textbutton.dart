@@ -7,7 +7,7 @@ class SignUpText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        top: 100,
+        top: 180,
         bottom: 30,
       ),
       child: Center(
