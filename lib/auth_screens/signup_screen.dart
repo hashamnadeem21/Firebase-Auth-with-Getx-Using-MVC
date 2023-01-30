@@ -49,7 +49,6 @@ class SignUp extends StatelessWidget {
             hintText: "Enter your Username",
             icon: Icons.supervised_user_circle,
             action: TextInputAction.next,
-
           ),
           CustomTextField(
             Secure: false,
@@ -79,14 +78,13 @@ class SignUp extends StatelessWidget {
                     name.text.toString(),
                     username.text.toString());
               }),
-    Custom_Button(
-    label: "Login",
-    backgroundcolor: ColorConstants.MainColor,
-    textcolor: Colors.white,
-    function: () {
-      Get.to(MainLogin());
-    }),
-
+          Custom_Button(
+              label: "Login",
+              backgroundcolor: ColorConstants.MainColor,
+              textcolor: Colors.white,
+              function: () {
+                Get.to(MainLogin());
+              }),
         ],
       ).extendPadding(),
     );
@@ -100,7 +98,9 @@ class CustomTextField extends StatelessWidget {
       required this.label,
       required this.hintText,
       required this.icon,
-      required this.action, this.secondIcon, required this.Secure})
+      required this.action,
+      this.secondIcon,
+      required this.Secure})
       : super(key: key);
 
   String label;
@@ -118,7 +118,7 @@ class CustomTextField extends StatelessWidget {
           height: 10,
         ),
         SizedBox(
-          width: Get.width*100,
+          width: Get.width * 100,
           height: 70,
           child: Card(
             shape:
